@@ -1,0 +1,11 @@
+{
+  "macros": {
+    "fullFormat": ["eslint.executeAutofix", "editor.action.formatDocument"]
+  },
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always"
+}
