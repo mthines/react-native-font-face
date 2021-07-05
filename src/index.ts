@@ -29,6 +29,7 @@ export type FontKey<
 > = `${FN}.${NonNullable<FS>}.${NonNullable<FW>}`;
 
 /**
+ * ### Font Face
  * Generate the Font Face object consisting of all the font files, mapped out into unique keys.
  *
  * @returns Object with All available fonts by unique key
@@ -37,6 +38,8 @@ export type FontKey<
  * 
  * If the `Style` Properties passed to the `Style` of the component, matches one of `Style` in the `fontFace` object, 
  * then it will return the FontFamily that matches that.
+ * 
+ * @see Fonts
  * 
  * @example
  * ```ts
