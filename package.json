@@ -56,11 +56,6 @@
   "dependencies": {
     "react-native": "^0.64.2"
   },
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
   "files": [
     "lib/**/*"
   ]
