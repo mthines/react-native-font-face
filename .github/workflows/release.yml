@@ -39,4 +39,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
           NPM_TOKEN: ${{secrets.GH_NPM_TOKEN}}
-        run: npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && cd build && npx semantic-release
+        run: npx semantic-release
