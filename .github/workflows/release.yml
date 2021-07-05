@@ -37,12 +37,6 @@ jobs:
       - name: Build library 📚
         run: yarn build
 
-      - name: Semantic Release 🛬
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: npx semantic-release
-
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}

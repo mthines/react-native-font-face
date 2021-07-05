@@ -1,6 +1,6 @@
 {
   "name": "@mthines/react-native-font-face",
-  "version": "0.0.0-automated",
+  "version": "0.1.1",
   "description": "TypeScript Module Boilerplate",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
