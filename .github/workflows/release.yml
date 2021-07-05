@@ -32,9 +32,6 @@ jobs:
       - name: Running linter
         run: yarn lint
 
-      - name: Running styles linter
-        run: yarn lint:style
-
       - name: Build library
         run: yarn build
 
