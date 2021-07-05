@@ -1,0 +1,45 @@
+name: Semantic Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache Node Modules 📦
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Running linter
+        run: yarn lint
+
+      - name: Running styles linter
+        run: yarn lint:style
+
+      - name: Build library
+        run: yarn build
+
+      - name: Publish module
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+          NPM_TOKEN: ${{secrets.GH_NPM_TOKEN}}
+        run: npm config set '//npm.pkg.github.com/:_authToken' "${NPM_TOKEN}" && cd build && npx semantic-release
