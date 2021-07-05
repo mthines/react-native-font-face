@@ -30,13 +30,12 @@ jobs:
         run: yarn install
 
       - name: Running linter
-        run: yarn lint
+        run: yarn prepublishOnly
 
       - name: Build library
         run: yarn build
 
       - name: Publish module
         env:
-          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
-          NPM_TOKEN: ${{secrets.GH_NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
         run: npx semantic-release
