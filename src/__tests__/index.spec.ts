@@ -10,7 +10,6 @@ describe('React Native: Font Face', function () {
   ]);
 
   const fontKeys = Object.keys(fonts);
-  const foasdntKeys = Object.keys(fonts);
 
   it('Normal Regular: Check font key', function () {
     expect(fontKeys[0]).to.equal('font.normal.400');
