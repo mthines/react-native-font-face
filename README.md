@@ -12,7 +12,7 @@ There's no solution like that for React Native, so this project aims to fix that
 
 #### 1. Declare a global constant as your font face
 
-##### `font.tsx`
+##### `constants/font.tsx`
 
 ```tsx
 export type FontName = 'Roboto';
@@ -48,7 +48,7 @@ export const fontFace = setFontFace<FontName, FontFamilies>([
 
 #### 2. Make a Text component which gets the `fontFamily` from the passed `style` and the global constant font face
 
-##### `text.tsx`
+##### `components/text.tsx`
 
 ```tsx
 type Props = {
@@ -71,6 +71,22 @@ const Txt = ({
 export default Txt;
 ```
 
-And that's it ☺️
+#### 3. Done! Now use the text component ☺️
 
 Now the Component will dynamically select which font file to use, when displaying that font.
+
+##### `components/screen/home.tsx`
+
+```tsx
+import Txt from 'components/text'
+
+const Home = () => {
+  return (
+    <View>
+      <Txt style={{ fontWeight: 600 }}>I will be bold</Txt>
+      <Txt style={{ fontWeight: 400 }}>I will be regular</Txt>
+      <Txt style={{ fontStyle: 'italic' }}>I will be italic</Txt>
+    </View>
+  )
+}
+```
