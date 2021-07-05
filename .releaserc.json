@@ -1,7 +1,7 @@
 {
   "branches": ["master", "next"],
+  "analyzeCommits": "@bubltechnology/customizable-commit-analyzer",
   "plugins": [
-    ["@semantic-release/commit-analyzer", { "preset": "angular" }],
     "@semantic-release/release-notes-generator",
     [
       "@semantic-release/npm",

@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/mthines/react-native-font-face#readme",
   "devDependencies": {
+    "@bubltechnology/customizable-commit-analyzer": "^1.0.2-0",
     "@semantic-release/npm": "^7.1.3",
     "@types/chai": "^4.2.19",
     "@types/expect": "^24.3.0",

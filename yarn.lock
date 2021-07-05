@@ -663,6 +663,11 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
+"@bubltechnology/customizable-commit-analyzer@^1.0.2-0":
+  version "1.0.2-0"
+  resolved "https://registry.yarnpkg.com/@bubltechnology/customizable-commit-analyzer/-/customizable-commit-analyzer-1.0.2-0.tgz#15bf049a6326779862cfa99860fdd3a25056c9f7"
+  integrity sha1-Fb8EmmMmd5hiz6mYYP3TolBWyfc=
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

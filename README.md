@@ -8,6 +8,9 @@ There's no solution like that for React Native, so this project aims to fix that
 
 ---
 
+### Prerequisite
+
+You need to have added your custom fonts to the project. See this thread for more: https://stackoverflow.com/a/41827668/1951459
 ### How to use it?
 
   - [1. Declare a global constant as your font face](#1-declare-a-global-constant-as-your-font-face)
