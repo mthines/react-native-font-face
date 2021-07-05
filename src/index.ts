@@ -1,16 +1,19 @@
 import { TextStyle } from 'react-native';
 
-export type FontFamily = TextStyle['fontFamily'];
-export type FontWeight = TextStyle['fontWeight'];
-export type FontStyle = TextStyle['fontStyle'];
+type FontFamily = TextStyle['fontFamily'];
 
-export type FontKey<
-  FN extends string,
+type FontWeight = TextStyle['fontWeight'];
+
+type FontStyle = TextStyle['fontStyle'];
+
+type FontName = string;
+
+type Fonts<
+  FN extends FontName,
+  FF extends FontFamily = FontFamily,
   FW extends FontWeight = FontWeight,
   FS extends FontStyle = FontStyle,
-> = `${FN}.${NonNullable<FS>}.${NonNullable<FW>}`;
-
-type Fonts<FN extends string, FF extends FontFamily = FontFamily, FW extends FontWeight = FontWeight, FS extends FontStyle = FontStyle> = {
+> = {
   font: FF;
   style: {
     fontFamily: FN;
@@ -19,13 +22,60 @@ type Fonts<FN extends string, FF extends FontFamily = FontFamily, FW extends Fon
   };
 }[];
 
+export type FontKey<
+  FN extends FontName,
+  FW extends FontWeight = FontWeight,
+  FS extends FontStyle = FontStyle,
+> = `${FN}.${NonNullable<FS>}.${NonNullable<FW>}`;
+
 /**
- * TODO: Add documentation
+ * Generate the Font Face object consisting of all the font files, mapped out into unique keys.
+ *
  * @returns Object with All available fonts by unique key
+ *
+ * `fontFamily.fontStyle.fontWeight`
+ * 
+ * If the `Style` Properties passed to the `Style` of the component, matches one of `Style` in the `fontFace` object, 
+ * then it will return the FontFamily that matches that.
+ * 
+ * @example
+ * ```ts
+  export type FontName = 'Roboto' | 'RobotoSlab';
+
+  export const fontFace = setFontFace<FontName>([
+    {
+      font: 'font1',
+      style: {
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: '400',
+      },
+    },
+    {
+      font: 'font2',
+      style: {
+        fontStyle: 'normal',
+        fontFamily: 'Roboto',
+        fontWeight: '600',
+      },
+    },
+    {
+      font: 'font3',
+      style: {
+        fontWeight: '400',
+        fontFamily: 'Roboto',
+        fontStyle: 'italic',
+      },
+    },
+  ]);
+ * ```
  */
-export const fontFaceKeys = <FN extends string, FF extends FontFamily = FontFamily>(
+export const setFontFace = <FN extends FontName, FF extends FontFamily = FontFamily>(
+  /**
+   * Array of Fonts you want to be available
+   */
   fonts: Fonts<FN, FF>,
-): Partial<Record<FontKey<FN>, string>> =>
+): Partial<Record<FontKey<FN>, FF>> =>
   Object.values(fonts).reduce(
     (_fonts, _font) => ({
       ..._fonts,

@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 
-import { fontFaceKeys } from '../index';
+import { setFontFace } from '../index';
 
 describe('React Native: Font Face', function () {
-  const fonts = fontFaceKeys<'font', 'font1' | 'font2' | 'font3'>([
+  const fonts = setFontFace<'font', 'font1' | 'font2' | 'font3'>([
     { font: 'font1', style: { fontFamily: 'font', fontStyle: 'normal', fontWeight: '400' } },
     { font: 'font2', style: { fontStyle: 'normal', fontFamily: 'font', fontWeight: '600' } },
     { font: 'font3', style: { fontWeight: '400', fontFamily: 'font', fontStyle: 'italic' } },
