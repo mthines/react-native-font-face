@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Cache Node Modules 📦
         uses: actions/cache@v2
@@ -42,6 +44,6 @@ jobs:
         run: npx semantic-release
 
       - name: NPM Publish module 🎁
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
