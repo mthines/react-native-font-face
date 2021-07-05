@@ -10,6 +10,13 @@ There's no solution like that for React Native, so this project aims to fix that
 
 ### How to use it?
 
+  - [1. Declare a global constant as your font face](#1-declare-a-global-constant-as-your-font-face)
+    - [`constants/font.tsx`](#constantsfonttsx)
+  - [2. Make a Text component which gets the `fontFamily` from the passed `style` and the global constant font face](#2-make-a-text-component-which-gets-the-fontfamily-from-the-passed-style-and-the-global-constant-font-face)
+    - [`components/text.tsx`](#componentstexttsx)
+  - [3. Done! Now use the text component ☺️](#3-done-now-use-the-text-component-️)
+    - [`components/screen/home.tsx`](#componentsscreenhometsx)
+
 #### 1. Declare a global constant as your font face
 
 ##### `constants/font.tsx`
@@ -78,7 +85,7 @@ Now the Component will dynamically select which font file to use, when displayin
 ##### `components/screen/home.tsx`
 
 ```tsx
-import Txt from 'components/text'
+import Txt from 'components/text';
 
 const Home = () => {
   return (
@@ -87,6 +94,6 @@ const Home = () => {
       <Txt style={{ fontWeight: 400 }}>I will be regular</Txt>
       <Txt style={{ fontStyle: 'italic' }}>I will be italic</Txt>
     </View>
-  )
-}
+  );
+};
 ```
