@@ -1,6 +1,6 @@
 {
   "name": "@mthines/react-native-font-face",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "TypeScript Module Boilerplate",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,13 +11,13 @@
     "lint": "eslint src --ext .js,.ts",
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "clean": "rimraf ./lib",
-    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" yarn test",
     "test": "cross-env TS_NODE_PROJECT=\"src/__tests__/tsconfig.testing.json\" mocha -r ts-node/register",
     "test:watch": "cross-env TS_NODE_PROJECT=\"src/__tests__/tsconfig.testing.json\" mocha -r ts-node/register --watch",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
+    "test:lint": "yarn test && yarn lint",
+    "prepare": "yarn build",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -60,6 +60,9 @@
     "branches": [
       "main"
     ]
+  },
+  "publishConfig": {
+    "tag": "v1-latest"
   },
   "files": [
     "lib/**/*"

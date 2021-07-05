@@ -30,13 +30,18 @@ jobs:
         run: yarn install
 
       - name: Running linter
-        run: yarn prepublishOnly
+        run: yarn test:lint
 
       - name: Build library
         run: yarn build
 
-      - name: Publish module
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_GITHUB_TOKEN }}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: npx semantic-release && npm publish --access public
+        run: npx semantic-release
+
+      - name: Publish module
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --tag ${{ github.event.release.target_commitish }}
