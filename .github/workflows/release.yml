@@ -26,22 +26,22 @@ jobs:
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
-      - name: Install Dependencies
+      - name: Install Dependencies ⬇️
         run: yarn install
 
-      - name: Running linter
+      - name: Running linter 🛠️
         run: yarn test:lint
 
-      - name: Build library
+      - name: Build library 📚
         run: yarn build
 
-      - name: Release
+      - name: Semantic Release 🛬
         env:
           GITHUB_TOKEN: ${{ secrets.GH_GITHUB_TOKEN }}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
         run: npx semantic-release
 
-      - name: Publish module
+      - name: NPM Publish module 🎁
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public --tag ${{ github.event.release.target_commitish }}
+        run: npm publish --access public
