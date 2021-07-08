@@ -1,6 +1,6 @@
 {
   "name": "@mthines/react-native-font-face",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Font Face (CSS style) for React Native made easy",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
