@@ -1,5 +1,7 @@
 # React Native Font Face
 
+[![NPM](https://nodei.co/npm/@mthines/react-native-font-face.png?mini=true)](https://www.npmjs.com/package/@mthines/react-native-font-face>)
+
 ## What is it?
 
 [CSS Font Face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) is a powerful way of grouping multiple fonts files, into a single group, and then based on the passed properties, dynamically changing the font file.
