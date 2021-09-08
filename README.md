@@ -1,6 +1,6 @@
 # React Native Font Face
 
-[![NPM](https://nodei.co/npm/@mthines/react-native-font-face.png?mini=true)](https://www.npmjs.com/package/@mthines/react-native-font-face>)
+[![NPM](https://nodei.co/npm/@mthines/react-native-font-face.png?mini=true)](https://www.npmjs.com/package/@mthines/react-native-font-face)
 
 ## What is it?
 
